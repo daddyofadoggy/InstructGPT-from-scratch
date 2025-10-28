@@ -196,7 +196,7 @@ Follow `setup` directory for environment set up
 
 **Code Location**: `ch07/02_gradio_interface/app_gradio_alternative.py`
 
-![HuggingFace GPT2 Chatbot](https://sebastianraschka.com/images/LLMs-from-scratch-images/mental-model.jpg)
+![HuggingFace GPT2 Chatbot](ch07/HF_GPT2.png)
 
 ---
 
