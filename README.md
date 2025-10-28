@@ -196,6 +196,9 @@ Follow `setup` directory for environment set up
 
 **Code Location**: `ch07/02_gradio_interface/app_gradio_alternative.py`
 
+**HF Demo Link**: https://huggingface.co/spaces/doggdad/InstructGPTFinetuned
+
+
 ![HuggingFace GPT2 Chatbot](ch07/HF_GPT2.png)
 
 ---
@@ -247,6 +250,5 @@ LLMs-from-scratch-main/
 - **Publisher**: Manning Publications
 - **ISBN**: 9781633437166
 - **GitHub**: https://github.com/rasbt/LLMs-from-scratch
-- **Video Course**: 17+ hour companion video course available
 
 ---
