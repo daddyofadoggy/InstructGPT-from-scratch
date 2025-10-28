@@ -1,0 +1,97 @@
+# Create the .gitignore file
+cat > .gitignore << 'EOL'
+# Large model files
+*.pth
+*.pt
+*.bin
+*.onnx
+*.tflite
+*.pb
+*.ckpt
+*model.ckpt.data*
+*.h5
+*.hdf5
+*.pkl
+*.model
+*.joblib
+*.weights
+*.safetensors
+
+# Specific model directories pattern (if needed)
+models/
+weights/
+checkpoints/
+pretrained/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+.virtualenv/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+# Data files
+*.csv
+*.tsv
+*.xlsx
+*.db
+*.sqlite
+*.sqlite3
+*.h5
+data/
+datasets/
+raw_data/
+
+# Logs
+logs/
+*.log
+tensorboard/
+runs/
+tb_logs/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temp files
+temp/
+tmp/
+EOL
