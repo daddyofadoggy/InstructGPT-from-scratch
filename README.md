@@ -1,4 +1,4 @@
-# Build a Large Language Model (From Scratch) - Chapter Summary Report
+# Build a Large Language Model (From Scratch)
 
 ## Overview
 
@@ -7,6 +7,9 @@ This repository implements a complete GPT-like Large Language Model from scratch
 ---
 
 ## Chapter-by-Chapter Summary
+
+### Chapter 0: Environment Set up
+Follow `setup` directory for environment set up 
 
 ### Chapter 1: Understanding Large Language Models
 
@@ -171,6 +174,15 @@ This repository implements a complete GPT-like Large Language Model from scratch
 - **Ollama integration**: Running local LLMs for automated evaluation
 - **Multi-stage data processing**: Format → Tokenize → Pad → Mask → Batch
 
+**Code Location**: `ch07/01_main-chapter-code/ch07.py`
+
+---
+### Chapter 7:Deployment in HuggingFace Hub
+
+
+**Summary**: Chapter 7 also demonstare how to deploy the finetuned LLM model to HuggingFace Hub as a chatbot. 
+**Code Location**: `ch07/02_gradio_interface/app_gradio.py`
+
 **Notable Implementations**:
 - `format_input`: Creating Alpaca-style formatted prompts
 - `InstructionDataset`: Custom Dataset handling instruction-response pairs
@@ -182,7 +194,9 @@ This repository implements a complete GPT-like Large Language Model from scratch
 - Automated scoring: Using LLM to assign numeric scores (0-100)
 
 
-**Code Location**: `ch07/01_main-chapter-code/ch07.ipynb`
+**Code Location**: `ch07/02_gradio_interface/app_gradio_alternative.py`
+
+![HuggingFace GPT2 Chatbot](https://sebastianraschka.com/images/LLMs-from-scratch-images/mental-model.jpg)
 
 ---
 
