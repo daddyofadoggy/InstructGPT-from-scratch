@@ -21,8 +21,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 
 ### Chapter 2: Working with Text Data
 
-![Data Preparation Overview](ch02/01_main-chapter-code/ch02_compressed/01.webp)
-
 **Summary**: Chapter 2 establishes the fundamental data preparation pipeline needed to get text data ready for LLM training. It walks through tokenizing text (breaking it into smaller units like words and punctuation), converting tokens into numerical token IDs, and creating data loaders that generate training batches. The chapter implements a simple tokenizer from scratch before introducing OpenAI's BytePair Encoding (BPE) tokenizer via tiktoken. Finally, it demonstrates creating embeddings (token embeddings and positional embeddings) that convert token IDs into continuous vector representations suitable for neural network training.
 
 **Key Concepts**:
@@ -40,9 +38,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 - `create_dataloader_v1`: Factory function for data loaders
 - Embedding layer demonstration with `nn.Embedding`
 
-![Tokenization Process](ch02/01_main-chapter-code/ch02_compressed/04.webp)
-
-![Input Embeddings Workflow](ch02/01_main-chapter-code/ch02_compressed/19.webp)
 
 **Code Location**: `ch02/01_main-chapter-code/ch02.ipynb`
 
@@ -50,7 +45,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 
 ### Chapter 3: Coding Attention Mechanisms
 
-![Attention Mechanisms Overview](ch03/01_main-chapter-code/ch03_compressed/01.webp)
 
 **Summary**: Chapter 3 implements the attention mechanism, the core component enabling LLMs to process and understand contextual relationships in text. It starts with a simplified self-attention mechanism without trainable weights, then builds up to full scaled dot-product attention with query, key, and value projections. The chapter introduces causal attention masking (preventing tokens from attending to future positions) and dropout for regularization. Finally, it extends single-head attention to multi-head attention, allowing the model to learn different representation subspaces simultaneously.
 
@@ -70,11 +64,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 - `CausalAttention`: Complete implementation with dropout and causal masking
 - `MultiHeadAttention`: Efficient implementation using weight splitting
 
-![Self-Attention Process](ch03/01_main-chapter-code/ch03_compressed/12.webp)
-
-![Causal Attention Mask](ch03/01_main-chapter-code/ch03_compressed/19.webp)
-
-![Multi-Head Attention](ch03/01_main-chapter-code/ch03_compressed/25.webp)
 
 **Code Location**: `ch03/01_main-chapter-code/ch03.ipynb`
 
@@ -82,7 +71,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 
 ### Chapter 4: Implementing a GPT Model from Scratch
 
-![GPT Architecture Overview](ch04/01_main-chapter-code/ch04_compressed/02.webp)
 
 **Summary**: Chapter 4 assembles all previous components into a complete GPT architecture capable of generating text. It implements layer normalization for training stability, the GELU activation function, feed-forward networks, and shortcut/residual connections to prevent vanishing gradients. The chapter constructs transformer blocks by combining multi-head attention with feed-forward layers, then stacks 12 of these blocks to create the full 124M parameter GPT-2 model. Finally, it implements a greedy decoding text generation function that produces one token at a time.
 
@@ -104,11 +92,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 - `GPTModel`: Complete architecture with 12 transformer blocks
 - `generate_text_simple`: Iterative greedy decoding function
 
-![Complete GPT Architecture](ch04/01_main-chapter-code/ch04_compressed/11.webp)
-
-![Transformer Block Structure](ch04/01_main-chapter-code/ch04_compressed/13.webp)
-
-![Text Generation Process](ch04/01_main-chapter-code/ch04_compressed/16.webp)
 
 **Code Location**: `ch04/01_main-chapter-code/ch04.ipynb`
 
@@ -116,7 +99,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 
 ### Chapter 5: Pretraining on Unlabeled Data
 
-![Chapter Overview](ch05/01_main-chapter-code/ch05_compressed/chapter-overview.webp)
 
 **Summary**: Chapter 5 implements the complete training loop for pretraining an LLM on unlabeled text data using next-token prediction. It introduces cross-entropy loss and perplexity as evaluation metrics, then trains a GPT model on a short story dataset. The chapter covers temperature scaling and top-k sampling as decoding strategies to control randomness in text generation. Finally, it demonstrates how to load pretrained GPT-2 weights from OpenAI, converting them from TensorFlow format into the custom PyTorch implementation, enabling use of models from 124M to 1558M parameters.
 
@@ -139,11 +121,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 - `download_and_load_gpt2`: Downloading pretrained weights from OpenAI
 - `load_weights_into_gpt`: Transferring TensorFlow weights to PyTorch model
 
-![GPT Processing Pipeline](ch05/01_main-chapter-code/ch05_compressed/gpt-process.webp)
-
-![Top-K Sampling](ch05/01_main-chapter-code/ch05_compressed/topk.webp)
-
-![GPT-2 Model Sizes](ch05/01_main-chapter-code/ch05_compressed/gpt-sizes.webp)
 
 **Code Location**: `ch05/01_main-chapter-code/ch05.ipynb`
 
@@ -151,7 +128,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 
 ### Chapter 6: Finetuning for Text Classification
 
-![Chapter Overview](ch06/01_main-chapter-code/ch06_compressed/chapter-overview.webp)
 
 **Summary**: Chapter 6 demonstrates classification finetuning by adapting a pretrained GPT model for spam detection. It prepares the SMS Spam Collection dataset, balancing classes through undersampling and creating appropriate data loaders with padding. The chapter modifies the GPT architecture by replacing the 50,257-dimensional output head with a 2-class classification head while freezing most parameters except the last transformer block, final LayerNorm, and output layer. After training for 5 epochs with AdamW optimizer, the model achieves ~97% accuracy on the spam classification task, demonstrating effective transfer learning.
 
@@ -174,11 +150,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 - `train_classifier_simple`: Training loop tracking both loss and accuracy
 - `classify_review`: Inference function for classifying new text
 
-![Classification vs Instruction Finetuning](ch06/01_main-chapter-code/ch06_compressed/spam-non-spam.webp)
-
-![Trainable Layers](ch06/01_main-chapter-code/ch06_compressed/trainable.webp)
-
-![Training Loop Structure](ch06/01_main-chapter-code/ch06_compressed/training-loop.webp)
 
 **Code Location**: `ch06/01_main-chapter-code/ch06.ipynb`
 
@@ -186,7 +157,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 
 ### Chapter 7: Finetuning to Follow Instructions
 
-![Chapter Overview](ch07/01_main-chapter-code/ch07_compressed/overview.webp)
 
 **Summary**: Chapter 7 teaches a pretrained LLM to follow natural language instructions through supervised instruction finetuning. It prepares an instruction dataset with input-output pairs formatted in Alpaca-style prompts (instruction, optional input, and response). The chapter implements custom batching to handle variable-length instruction-response pairs, using masking to compute loss only on response portions. After finetuning the 355M parameter GPT-2 model on the instruction dataset, it demonstrates evaluation using another LLM (Llama 3 via Ollama) to automatically score the quality of generated responses.
 
@@ -211,11 +181,6 @@ This repository implements a complete GPT-like Large Language Model from scratch
 - `query_model` (Ollama): Interfacing with local Llama 3 for evaluation
 - Automated scoring: Using LLM to assign numeric scores (0-100)
 
-![Instruction Following Example](ch07/01_main-chapter-code/ch07_compressed/instruction-following.webp)
-
-![Prompt Formatting Styles](ch07/01_main-chapter-code/ch07_compressed/prompt-style.webp)
-
-![Detailed Batching Process](ch07/01_main-chapter-code/ch07_compressed/detailed-batching.webp)
 
 **Code Location**: `ch07/01_main-chapter-code/ch07.ipynb`
 
@@ -258,14 +223,11 @@ LLMs-from-scratch-main/
 ├── ch05/          # Pretraining on Unlabeled Data
 ├── ch06/          # Finetuning for Classification
 ├── ch07/          # Finetuning to Follow Instructions
-├── appendix-A/    # Introduction to PyTorch
-├── appendix-D/    # Training Loop Enhancements
-└── appendix-E/    # Parameter-efficient Finetuning with LoRA
 ```
 
 ---
 
-## Additional Resources
+## References
 
 - **Book**: *Build a Large Language Model (From Scratch)* by Sebastian Raschka
 - **Publisher**: Manning Publications
@@ -274,5 +236,3 @@ LLMs-from-scratch-main/
 - **Video Course**: 17+ hour companion video course available
 
 ---
-
-*Report generated: 2025-10-26*
